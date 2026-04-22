@@ -1,12 +1,14 @@
 const express = require("express");
-const routes = require('./routes');
-const { errorConverter, errorHandler } = require('./middlewares/error');
+const routes = require("./routes");
+const { errorConverter, errorHandler } = require("./middlewares/error");
+const cors = require("cors");
 
 const app = express();
 
 app.use(express.json());
 
-app.use('/api/v1', routes);
+app.use(cors());
+app.use("/api/v1", routes);
 
 app.use(errorConverter);
 app.use(errorHandler);
