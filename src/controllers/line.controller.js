@@ -7,7 +7,7 @@ exports.webhook = catchAsync(async (req, res, next) => {
   return ok(res, result);
 });
 
-function handleEvent(event) {
+async function handleEvent(event) {
   if (event.type !== 'message' || event.message.type !== 'text') {
     return Promise.resolve(null);
   }

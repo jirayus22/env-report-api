@@ -8,7 +8,7 @@ const getOperation = async () => {
 const createOperation = async (data) => {
   const operation = await Operation.create(data);
 
-  return operation?._id ?? "";
+  return operation;
 };
 
 module.exports = {
