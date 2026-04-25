@@ -1,10 +1,17 @@
 const { operationService } = require("../services");
 const { ok, fail, catchAsync } = require("../utils");
-const { client } = require('../configs/line');
+const { client } = require("../configs/line");
 
 exports.getOperation = catchAsync(async (req, res, next) => {
-  const payload = req.body;
-  const result = await operationService.getOperation();
+  const { id } = req.query;
+
+  let result;
+
+  if (id) {
+    result = await operationService.getOperationById(id);
+  } else {
+    result = await operationService.getOperation();
+  }
 
   return ok(res, result);
 });
@@ -16,10 +23,10 @@ exports.createOperation = catchAsync(async (req, res, next) => {
   await client.broadcast({
     messages: [
       {
-        type: 'text',
-        text: `New operation created \nDetails: ${JSON.stringify(result, null, 2)}`
-      }
-    ]
+        type: "text",
+        text: `New operation created \nDetails: ${JSON.stringify(result, null, 2)}`,
+      },
+    ],
   });
 
   return ok(res, result);

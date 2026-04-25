@@ -5,7 +5,7 @@ const router = express.Router();
 const operationController = require("../controllers/operation.controller");
 const operationValidation = require("../validations/operation.validation")
 
-router.get("/" , operationController.getOperation);
+router.get("/" , operationController.getOperation );
 router.post("/", validate(operationValidation.createOperation), operationController.createOperation);
 
 module.exports = router;

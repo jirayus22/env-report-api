@@ -11,7 +11,12 @@ const createOperation = async (data) => {
   return operation;
 };
 
+const getOperationById = async (id) => {
+  return await Operation.findById(id);
+};
+
 module.exports = {
   createOperation,
   getOperation,
+  getOperationById,
 };
