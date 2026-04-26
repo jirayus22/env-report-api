@@ -1,10 +1,14 @@
-const express = require('express');
-const reportRoute = require('./operation.route');
+const express = require("express");
+const reportRoute = require("./operation.route");
 const router = express.Router();
 
 const defaultRoutes = [
   {
-    path: '/operations',
+    path: "/operations",
+    route: reportRoute,
+  },
+  {
+    path: "/users",
     route: reportRoute,
   },
 ];

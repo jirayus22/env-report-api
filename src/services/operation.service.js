@@ -15,8 +15,13 @@ const getOperationById = async (id) => {
   return await Operation.findById(id);
 };
 
-module.exports = {
+const updateOperation = async (data) => {
+  return await Operation.findByIdAndUpdate(data._id, data, { new: true });
+};
+
+module.exports = {  
   createOperation,
   getOperation,
   getOperationById,
+  updateOperation,
 };
