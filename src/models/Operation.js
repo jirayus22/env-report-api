@@ -13,32 +13,38 @@ const operationSchema = new mongoose.Schema(
     },
     system_status: {
       type: Boolean,
-      default: false
+      default: false,
     },
     pump_status: {
       type: Boolean,
-      default: false
+      default: false,
     },
     aerator_status: {
       type: Boolean,
-      default: false
+      default: false,
     },
     sludge_pump_status: {
       type: Boolean,
-      default: false
+      default: false,
     },
     chlorine_status: {
       type: Boolean,
-      default: false
+      default: false,
     },
     do_value: {
-      type: Number
+      type: Number,
     },
     sv30_value: {
-      type: Number
+      type: Number,
     },
     ph_value: {
-      type: Number
+      type: Number,
+    },
+    ramark: {
+      type: String,
+    },
+    user_create: {
+      type: Number,
     },
   },
   {

@@ -1,5 +1,6 @@
 const Joi = require("joi");
 const { objectId } = require("./custom.validation");
+const { create } = require("../models/Operation");
 
 const createOperation = {
   body: Joi.object().keys({
@@ -13,6 +14,8 @@ const createOperation = {
     do_value: Joi.number().optional(),
     sv30_value: Joi.number().optional(),
     ph_value: Joi.number().optional(),
+    remark: Joi.string().optional(),
+    created_by: Joi.custom(objectId).required(),
   }),
 };
 
