@@ -15,11 +15,13 @@ const getOperationById = async (id) => {
   return await Operation.findById(id);
 };
 
-const updateOperation = async (data) => {
-  return await Operation.findByIdAndUpdate(data._id, data, { new: true });
+const updateOperation = async (id, data) => {
+  return await Operation.findByIdAndUpdate(id, data, {
+    returnDocument: "after",
+  });
 };
 
-module.exports = {  
+module.exports = {
   createOperation,
   getOperation,
   getOperationById,

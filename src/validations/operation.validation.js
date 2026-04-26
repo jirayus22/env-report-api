@@ -21,7 +21,6 @@ const createOperation = {
 
 const updateOperation = {
   body: Joi.object().keys({
-    _id: Joi.custom(objectId).required(),
     work_date: Joi.string().required(),
     system_status: Joi.boolean().optional(),
     pump_status: Joi.boolean().optional(),
@@ -31,6 +30,7 @@ const updateOperation = {
     do_value: Joi.number().optional(),
     sv30_value: Joi.number().optional(),
     ph_value: Joi.number().optional(),
+    remark: Joi.string().allow("").optional(),
   }),
 };
 

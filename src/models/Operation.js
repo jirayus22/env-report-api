@@ -40,11 +40,11 @@ const operationSchema = new mongoose.Schema(
     ph_value: {
       type: Number,
     },
-    ramark: {
+    remark: {
       type: String,
     },
-    user_create: {
-      type: Number,
+    created_by: {
+      type: String,
     },
   },
   {

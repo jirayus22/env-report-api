@@ -48,6 +48,7 @@ const isAlert = (v) => Number(v) > 10;
 
 exports.createOperation = catchAsync(async (req, res, next) => {
   const payload = req.body;
+  console.log("🚀 ~ file: operation.controller.js:120 ~ payload:", payload);
   const result = await operationService.createOperation(payload);
   const reponseJson = JSON.stringify(result, null, 2);
 
@@ -138,8 +139,9 @@ exports.createOperation = catchAsync(async (req, res, next) => {
 });
 
 exports.updateOperation = catchAsync(async (req, res, next) => {
+  const { id } = req.params;
   const payload = req.body;
   console.log("🚀 ~ file: operation.controller.js:122 ~ payload:", payload);
-  const result = await operationService.updateOperation(payload);
+  const result = await operationService.updateOperation(id, payload);
   return ok(res, result);
 });
