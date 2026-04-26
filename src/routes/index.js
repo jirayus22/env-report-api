@@ -1,5 +1,6 @@
 const express = require("express");
 const reportRoute = require("./operation.route");
+const userRoute = require("./user.route");
 const router = express.Router();
 
 const defaultRoutes = [
@@ -8,8 +9,8 @@ const defaultRoutes = [
     route: reportRoute,
   },
   {
-    path: "/users",
-    route: reportRoute,
+    path: "/user",
+    route: userRoute,
   },
 ];
 

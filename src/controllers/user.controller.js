@@ -15,3 +15,11 @@ exports.getUsers = catchAsync(async (req, res, next) => {
 
   return ok(res, result);
 });
+
+exports.createUser = catchAsync(async (req, res, next) => {
+  const payload = req.body;
+  console.log("payload", payload);
+  const result = await userService.createUser(payload);
+  const reponseJson = JSON.stringify(result, null, 2);
+  return ok(res, result);
+});
