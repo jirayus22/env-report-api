@@ -68,19 +68,16 @@ exports.createOperation = catchAsync(async (req, res, next) => {
             weight: "bold",
             size: "lg",
           },
-
           {
             type: "text",
             text: "========================",
             color: "#AAAAAA",
           },
-
           {
             type: "text",
             text: `📅 วันที่ลงข้อมูล: ${formatDate(result.createdAt)}`,
             wrap: true,
           },
-
           {
             type: "text",
             text: `⚙️ การทำงานของระบบ: ${convertStatus(result.system_status)}`,
@@ -106,13 +103,11 @@ exports.createOperation = catchAsync(async (req, res, next) => {
             text: `🧴 เครื่องหยดคลอรีน: ${convertStatus(result.chlorine_status)}`,
             wrap: true,
           },
-
           {
             type: "text",
             text: "📊 ค่าคุณภาพน้ำ:",
             weight: "bold",
           },
-
           {
             type: "text",
             text: `- DO: ${result.do_value}`,
@@ -127,6 +122,23 @@ exports.createOperation = catchAsync(async (req, res, next) => {
             type: "text",
             text: `- pH: ${result.ph_value}`,
             color: getColor("ph", result.ph_value),
+          },
+        ],
+      },
+
+      // 👇 เพิ่มส่วน footer สำหรับปุ่มลิงก์
+      footer: {
+        type: "box",
+        layout: "vertical",
+        contents: [
+          {
+            type: "button",
+            style: "primary",
+            action: {
+              type: "uri",
+              label: "ดูรายละเอียดเพิ่มเติม",
+              uri: "https://env-report-two.vercel.app/",
+            },
           },
         ],
       },
