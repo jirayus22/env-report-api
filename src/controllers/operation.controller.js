@@ -25,7 +25,7 @@ const getColor = (field, value) => {
 
   switch (field) {
     case "do":
-      return v > 1 ? "#FF3B30" : "#333333";
+      return v < 1 ? "#FF3B30" : "#333333";
 
     case "sv30":
       return v < 200 || v > 500 ? "#FF3B30" : "#333333";
